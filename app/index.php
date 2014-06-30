@@ -1,7 +1,4 @@
 <?php
-ERROR_REPORTING(E_ALL);
-ini_set('display_errors', 1);
-
 $app->get('/', function() use ($app) {
     echo $app->render('index/index');
 });
