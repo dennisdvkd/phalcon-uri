@@ -6,6 +6,6 @@
     </head>
     <body>
         {% block content %}{% endblock %}
-        <p>You can access your short url by using <strong>/u/<strong>{short}</strong></strong></p>
+        <p>You can access your short url by using <strong>/{short}</strong></p>
     </body>
 </html>

@@ -14,15 +14,19 @@ $app->get('/setup', function() use ($app) {
     )');
 });
 
-$app->get('/u/{short}', function($short) use ($app) {
-    $shorturl = app\models\ShortUrl::findFirst("short = '".(string)$short."'");
-
-    if ($shorturl !== false) {
-        $shorturl->save();
-        return $app->response->redirect($shorturl->getUri(), true, 301);
+$app->get('/{short}', function($short) use ($app) {
+    if (strlen(trim($short)) == 0) {
+        echo $app->render('index/index');
     } else {
-        $app->response->setStatusCode(404, 'Not Found')->sendHeaders();
-        echo $app->render('errors/urlnotfound');
+        $shorturl = app\models\ShortUrl::findFirst("short = '".(string)$short."'");
+
+        if ($shorturl !== false) {
+            $shorturl->save();
+            return $app->response->redirect($shorturl->getUri(), true, 301);
+        } else {
+            $app->response->setStatusCode(404, 'Not Found')->sendHeaders();
+            echo $app->render('errors/urlnotfound');
+        }
     }
 });
 
