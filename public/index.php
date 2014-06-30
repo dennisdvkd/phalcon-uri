@@ -4,6 +4,7 @@ error_reporting(E_ALL);
 try {
     $config = include __DIR__ . '/../app/config/config.php';
 
+    include __DIR__ . '/../app/config/autoload.php';
     include __DIR__ . '/../app/config/di.php';
     include __DIR__ . '/../app/config/UriApp.php';
 
