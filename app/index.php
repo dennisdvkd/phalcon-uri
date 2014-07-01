@@ -46,6 +46,7 @@ $app->post('/', function() use ($app) {
 
     $url = new app\models\ShortUrl();
     $url->setUri($uri);
+    // todo Add some kind of description from a form.
     $url->setDescription('');
     $url->setAdded(DATE_ATOM);
     $url->setLastAccess(DATE_ATOM);

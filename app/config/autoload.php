@@ -8,4 +8,3 @@ $loader->registerNamespaces([
 ]);
 
 $loader->register();
-
